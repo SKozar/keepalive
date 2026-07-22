@@ -1,6 +1,6 @@
 # keepalive
 
-Держит macOS «активной» для Teams в заданные часы. Дёргает мышь только при реальном простое системы.
+Keep macOS "active" for Microsoft Teams during chosen hours. Moves the cursor only when the system is truly idle.
 
 ## Install
 
@@ -25,7 +25,7 @@ make release VERSION=1.0.0  # tag + push
 
 ## How it works
 
-- Раз в 30–60 секунд проверяет idle-таймер macOS
-- Если простой > N секунд — сдвигает курсор на 1px (незаметно)
-- Активен только в заданном окне (по умолчанию 04:00–12:00)
-- Запускается как launchd-агент, переживает перезагрузку
+- Checks system idle time every 30–60 seconds
+- If idle exceeds the configured threshold — moves the cursor by 1 px (imperceptible)
+- Only active during the configured time window (default: 04:00–12:00)
+- Runs as a launchd agent, survives reboots
