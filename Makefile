@@ -19,6 +19,7 @@ test:
 	$(PDM) run pytest -v
 
 build: test
+	rm -rf dist/$(APP_NAME) dist/$(APP_NAME).app
 	$(PDM) run pyinstaller --onefile --name $(APP_NAME) src/keepalive/__main__.py
 
 gui:
