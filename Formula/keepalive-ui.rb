@@ -8,9 +8,8 @@ class KeepaliveUi < Formula
   depends_on "keepalive"
 
   def install
-    # Debug: what's in the staging directory?
-    contents = Dir.glob("*").map { |f| "#{File.directory?(f) ? 'd' : 'f'} #{f}" }.join(", ")
-    odie "PWD=#{Dir.pwd} FILES=[#{contents}]"
+    # Zip unpacks Keepalive.app/ — we're already inside it.
+    (prefix/"Keepalive.app").install Dir["*"]
   end
 
   def post_install
