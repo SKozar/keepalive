@@ -1,27 +1,31 @@
 APP_NAME = keepalive
-VENV = venv
 BINARY = dist/$(APP_NAME)
 FORMULA = Formula/$(APP_NAME).rb
 TAP_DIR = $(HOME)/Projects/pets/homebrew-tap
+PDM = pdm
 
-.PHONY: all build clean release
+.PHONY: all dev test build clean release
 
 all: build
 
-build: $(BINARY)
+dev:
+	$(PDM) install --dev
 
-$(BINARY): keepalive.py
-	$(VENV)/bin/pip install -q pyinstaller
-	$(VENV)/bin/pyinstaller --onefile --name $(APP_NAME) keepalive.py
+test:
+	$(PDM) run pytest -v
+
+build: test
+	$(PDM) run pyinstaller --onefile --name $(APP_NAME) src/keepalive/__main__.py
 
 clean:
-	rm -rf build dist *.spec
+	rm -rf build dist *.spec .pytest_cache
+	find . -type d -name __pycache__ -exec rm -rf {} + 2>/dev/null; true
 
 release:
 	@[ "${VERSION}" ] || ( echo "Usage: make release VERSION=0.2.0"; exit 1 )
 	@[ -d "$(TAP_DIR)" ] || ( echo "Tap not found at $(TAP_DIR). Clone it: git clone git@github.com:skozar/homebrew-tap.git $(TAP_DIR)"; exit 1 )
 	@echo "🔨 Building..."
-	@$(MAKE) --no-print-directory build
+	@$(MAKE) build
 	@SHA=$$(shasum -a 256 $(BINARY) | cut -d' ' -f1); \
 	echo "📦 sha256: $$SHA"; \
 	echo "📝 Updating formula (v$(VERSION), $$SHA)..."; \

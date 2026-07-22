@@ -1,7 +1,10 @@
-venv/
 __pycache__/
 *.pyc
-*.log
+*.pyo
 build/
 dist/
 *.spec
+.pdm-build/
+.pdm-python
+.venv/
+.pytest_cache/
