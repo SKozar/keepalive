@@ -2,6 +2,7 @@
 
 Keep macOS "active" for Microsoft Teams during chosen hours. Moves the cursor only when the system is truly idle.
 
+
 ## Install
 
 ```bash
