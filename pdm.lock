@@ -5,7 +5,7 @@
 groups = ["default", "build", "test"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:cd90360ccf8fd76b24407818ce6890ffd3d60667bda62be463507a6c182ae293"
+content_hash = "sha256:94a5fb83cdddcb37286aa374e5facc23c59e7d0e76170f028286ae8a8dc2ca0b"
 
 [[metadata.targets]]
 requires_python = ">=3.14,<3.16"
@@ -227,6 +227,18 @@ marker = "sys_platform == \"win32\""
 files = [
     {file = "pywin32-ctypes-0.2.3.tar.gz", hash = "sha256:d162dc04946d704503b2edc4d55f3dba5c1d539ead017afa00142c38b9885755"},
     {file = "pywin32_ctypes-0.2.3-py3-none-any.whl", hash = "sha256:8a1513379d709975552d202d942d9837758905c8d01eb82b8bcc30918929e7b8"},
+]
+
+[[package]]
+name = "rumps"
+version = "0.4.0"
+summary = "Ridiculously Uncomplicated MacOS Python Statusbar apps."
+groups = ["default"]
+dependencies = [
+    "pyobjc-framework-Cocoa",
+]
+files = [
+    {file = "rumps-0.4.0.tar.gz", hash = "sha256:17fb33c21b54b1e25db0d71d1d793dc19dc3c0b7d8c79dc6d833d0cffc8b1596"},
 ]
 
 [[package]]
