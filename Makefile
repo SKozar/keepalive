@@ -1,6 +1,6 @@
 APP_NAME = keepalive
 BINARY = dist/$(APP_NAME)
-GUI_NAME = Keepalive
+GUI_NAME = KeepaliveUI
 GUI_APP = dist/$(GUI_NAME).app
 GUI_ZIP = dist/$(GUI_NAME)-$(VERSION).zip
 FORMULA = Formula/$(APP_NAME).rb
@@ -60,7 +60,7 @@ release:
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$CLI_SHA\"/" $(FORMULA); \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(UI_FORMULA); \
-	sed -i '' "s|keepalive-ui-v[0-9.]*/Keepalive-[0-9.]*.zip|keepalive-ui-v$(VERSION)/Keepalive-$(VERSION).zip|" $(UI_FORMULA); \
+	sed -i '' "s|keepalive-ui-v[0-9.]*/KeepaliveUI-[0-9.]*.zip|keepalive-ui-v$(VERSION)/KeepaliveUI-$(VERSION).zip|" $(UI_FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$GUI_SHA\"/" $(UI_FORMULA); \
 	sed -i '' 's/__version__ = ".*"/__version__ = "$(VERSION)"/' src/keepalive/__init__.py; \
 	sed -i '' 's/^version = ".*"/version = "$(VERSION)"/' pyproject.toml; \
