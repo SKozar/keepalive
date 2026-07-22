@@ -8,7 +8,7 @@ class KeepaliveUi < Formula
   depends_on "keepalive"
 
   def install
-    prefix.install "Keepalive.app"
+    mv "Keepalive.app", prefix
   end
 
   def post_install
