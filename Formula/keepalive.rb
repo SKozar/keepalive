@@ -8,11 +8,14 @@ class Keepalive < Formula
   depends_on "keepalive-cli"
 
   def install
-    prefix.install "Keepalive.app"
+    (prefix/"Keepalive.app").install Dir["*"]
   end
 
   def post_install
-    system "ln", "-sf", prefix/"Keepalive.app", "/Applications/Keepalive.app"
+    app_source = prefix/"Keepalive.app"
+    app_target = Pathname("/Applications/Keepalive.app")
+    app_target.delete if app_target.exist? || app_target.symlink?
+    app_target.make_symlink(app_source)
   end
 
   def caveats
@@ -28,5 +31,9 @@ class Keepalive < Formula
         System Settings → Privacy & Security → Accessibility
         Add: /opt/homebrew/bin/keepalive-cli
     EOS
+  end
+
+  test do
+    system "test", "-d", prefix/"Keepalive.app"
   end
 end
