@@ -1,10 +1,10 @@
-APP_NAME = keepalive
+APP_NAME = keepalive-cli
 BINARY = dist/$(APP_NAME)/$(APP_NAME)
-GUI_NAME = KeepaliveUI
+GUI_NAME = Keepalive
 GUI_APP = dist/$(GUI_NAME).app
 GUI_ZIP = dist/$(GUI_NAME)-$(VERSION).zip
 FORMULA = Formula/$(APP_NAME).rb
-UI_FORMULA = Formula/keepalive-ui.rb
+UI_FORMULA = Formula/keepalive.rb
 TAP_DIR = $(HOME)/Projects/pets/homebrew-tap
 PDM = pdm
 
@@ -70,7 +70,7 @@ release:
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$CLI_SHA\"/" $(FORMULA); \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(UI_FORMULA); \
-	sed -i '' "s|download/[^/]*/KeepaliveUI-[0-9.]*.zip|download/v$(VERSION)/KeepaliveUI-$(VERSION).zip|" $(UI_FORMULA); \
+	sed -i '' "s|download/[^/]*/Keepalive-[0-9.]*.zip|download/v$(VERSION)/Keepalive-$(VERSION).zip|" $(UI_FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$GUI_SHA\"/" $(UI_FORMULA); \
 	sed -i '' 's/__version__ = ".*"/__version__ = "$(VERSION)"/' src/keepalive/__init__.py; \
 	sed -i '' 's/^version = ".*"/version = "$(VERSION)"/' pyproject.toml; \

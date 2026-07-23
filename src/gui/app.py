@@ -38,7 +38,7 @@ def save_settings(settings: dict):
 
 def run_cli(*args: str) -> tuple[int, str, str]:
     result = subprocess.run(
-        ["/opt/homebrew/bin/keepalive", *args],
+        ["/opt/homebrew/bin/keepalive-cli", *args],
         capture_output=True, text=True,
     )
     return result.returncode, result.stdout, result.stderr
@@ -76,7 +76,7 @@ def get_cli_settings() -> dict | None:
 class KeepaliveApp(rumps.App):
     def __init__(self):
         super().__init__(
-            "keepalive",
+            "Keepalive",
             quit_button=None,
             icon=str(_assets_dir() / "icon_stopped.png"),
             template=True,

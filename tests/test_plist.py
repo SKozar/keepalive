@@ -10,7 +10,7 @@ PLIST_XML = """<?xml version="1.0" encoding="UTF-8"?>
 <dict>
     <key>ProgramArguments</key>
     <array>
-        <string>/opt/homebrew/bin/keepalive</string>
+        <string>/opt/homebrew/bin/keepalive-cli</string>
         <string>--schedule</string>
         <string>10:00-11:00</string>
         <string>--idle</string>

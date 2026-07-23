@@ -83,9 +83,9 @@ def cmd_status(json_output: bool = False):
         return
 
     if running:
-        print("🟢 keepalive is running")
+        print("🟢 keepalive-cli is running")
     else:
-        print("🔴 keepalive is not running")
+        print("🔴 keepalive-cli is not running")
 
     if cfg:
         method = cfg.get("method", DEFAULT_METHOD)
@@ -121,7 +121,7 @@ def _add_common_args(parser):
 
 def main():
     parser = argparse.ArgumentParser(
-        prog="keepalive",
+        prog="keepalive-cli",
         description="Keep macOS awake during work hours — stays green in messengers (Slack, Teams, Discord).",
     )
     sub = parser.add_subparsers(dest="command", title="commands")

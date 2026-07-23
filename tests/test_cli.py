@@ -11,7 +11,7 @@ class TestCLI:
             capture_output=True, text=True,
         )
         assert result.returncode == 0
-        assert "usage: keepalive" in result.stdout
+        assert "usage: keepalive-cli" in result.stdout
 
     def test_start_help(self):
         result = subprocess.run(
@@ -29,4 +29,4 @@ class TestCLI:
             capture_output=True, text=True,
         )
         assert result.returncode == 0
-        assert "keepalive" in result.stdout.lower()
+        assert "keepalive-cli" in result.stdout.lower()
