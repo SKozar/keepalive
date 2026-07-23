@@ -1,9 +1,9 @@
 class KeepaliveUi < Formula
   desc "Menu bar controller for the keepalive activity agent"
   homepage "https://github.com/skozar/keepalive"
-  version "0.5.1"
-  url "https://github.com/skozar/keepalive/releases/download/v0.5.1/KeepaliveUI-0.5.1.zip"
-  sha256 "754313113bc3eea3d8b55660dfd2074bfc698d52f708da4ffdbc1c2ed7dc676e"
+  version "0.5.2"
+  url "https://github.com/skozar/keepalive/releases/download/v0.5.2/KeepaliveUI-0.5.2.zip"
+  sha256 "75235a07e0bc5135c3edb76f636e4e1d01fbf724a3e3fc896121e315b35ad85f"
   license "MIT"
 
   depends_on "keepalive"

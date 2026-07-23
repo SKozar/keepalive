@@ -1,5 +1,38 @@
 # Changelog
 
+## v0.5.2 (2026-07-23)
+- fix: correct backslash escaping in release target
+- fix: remove broken sed line in release target
+- fix: speed up CLI (--onedir), fix Settings NSPopUpButton, dual CI
+- chore: add market-analysis.md (gitignored)
+- docs: add donate badges (GitHub Sponsors + Buy Me a Coffee)
+- ci: skip launchctl test on Linux, handle FileNotFoundError
+- ci: make pyobjc/rumps darwin-only, unblock Ubuntu CI
+- chore: remove .coverage from tracking
+- ci: add GitHub Actions test workflow with coverage
+- v0.5.1: update formulas
+
+## v0.5.2 (2026-07-23)
+- fix: remove broken sed line in release target
+- fix: speed up CLI (--onedir), fix Settings NSPopUpButton, dual CI
+- chore: add market-analysis.md (gitignored)
+- docs: add donate badges (GitHub Sponsors + Buy Me a Coffee)
+- ci: skip launchctl test on Linux, handle FileNotFoundError
+- ci: make pyobjc/rumps darwin-only, unblock Ubuntu CI
+- chore: remove .coverage from tracking
+- ci: add GitHub Actions test workflow with coverage
+- v0.5.1: update formulas
+
+## v0.5.2 (2026-07-23)
+- fix: speed up CLI (--onedir), fix Settings NSPopUpButton, dual CI
+- chore: add market-analysis.md (gitignored)
+- docs: add donate badges (GitHub Sponsors + Buy Me a Coffee)
+- ci: skip launchctl test on Linux, handle FileNotFoundError
+- ci: make pyobjc/rumps darwin-only, unblock Ubuntu CI
+- chore: remove .coverage from tracking
+- ci: add GitHub Actions test workflow with coverage
+- v0.5.1: update formulas
+
 ## v0.5.1 (2026-07-23)
 - chore: move gui/ back to src/gui/, add --paths src
 - feat: auto-start/stop, toggle menu, status --json, 08-17 default
