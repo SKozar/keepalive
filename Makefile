@@ -68,7 +68,6 @@ release:
 	echo "CLI sha256: $$CLI_SHA"; \
 	echo "UI  sha256: $$GUI_SHA"; \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(FORMULA); \
-	sed -i '' "s|download/[^/]*/keepalive[^\"]*\\.\\+d|download/v$(VERSION)/keepalive-$(VERSION).tar.gz|" $(FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$CLI_SHA\"/" $(FORMULA); \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(UI_FORMULA); \
 	sed -i '' "s|download/[^/]*/KeepaliveUI-[0-9.]*.zip|download/v$(VERSION)/KeepaliveUI-$(VERSION).zip|" $(UI_FORMULA); \
