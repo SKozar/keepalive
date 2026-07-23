@@ -2,6 +2,8 @@
 
 [![tests](https://github.com/skozar/keepalive/actions/workflows/test.yml/badge.svg)](https://github.com/skozar/keepalive/actions/workflows/test.yml)
 [![coverage](https://img.shields.io/badge/coverage-available-success)](https://github.com/skozar/keepalive/actions/workflows/test.yml)
+[![sponsor](https://img.shields.io/badge/sponsor-30363D?logo=github-sponsors&style=flat)](https://github.com/sponsors/skozar)
+[![buy me a coffee](https://img.shields.io/badge/donate-FF813F?logo=buymeacoffee&style=flat)](https://buymeacoffee.com/skozar)
 
 Stay green. Simulates macOS input activity only when you're away — so messaging apps don't mark you as "Away" or "Idle."
 
