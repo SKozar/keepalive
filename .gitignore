@@ -9,3 +9,5 @@ dist/
 .venv/
 .pytest_cache/
 .coverage
+docs/market-analysis.md
+docs/market-analysis.md
