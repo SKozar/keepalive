@@ -1,5 +1,5 @@
 APP_NAME = keepalive
-BINARY = dist/$(APP_NAME)
+BINARY = dist/$(APP_NAME)/$(APP_NAME)
 GUI_NAME = KeepaliveUI
 GUI_APP = dist/$(GUI_NAME).app
 GUI_ZIP = dist/$(GUI_NAME)-$(VERSION).zip
@@ -20,7 +20,8 @@ test:
 
 build: test
 	rm -rf dist/$(APP_NAME) dist/$(APP_NAME).app
-	$(PDM) run pyinstaller --onefile --name $(APP_NAME) src/keepalive/__main__.py
+	$(PDM) run pyinstaller --onedir --name $(APP_NAME) src/keepalive/__main__.py
+	@[ -n "$(VERSION)" ] && ( cd dist && tar -czf $(APP_NAME)-$(VERSION).tar.gz $(APP_NAME) ) || true
 
 gui:
 	rm -rf dist/$(GUI_NAME) dist/$(GUI_NAME).app
@@ -62,11 +63,12 @@ release:
 	  echo ) >> $$NOTES_FILE; \
 	tail -n +2 CHANGELOG.md >> $$NOTES_FILE; \
 	mv $$NOTES_FILE CHANGELOG.md; \
-	CLI_SHA=$$(shasum -a 256 $(BINARY) | cut -d' ' -f1); \
+	CLI_SHA=$$(shasum -a 256 dist/$(APP_NAME)-$(VERSION).tar.gz | cut -d' ' -f1); \\
 	GUI_SHA=$$(shasum -a 256 dist/$(GUI_NAME)-$(VERSION).zip | cut -d' ' -f1); \
 	echo "CLI sha256: $$CLI_SHA"; \
 	echo "UI  sha256: $$GUI_SHA"; \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(FORMULA); \
+	sed -i '' "s|download/[^/]*/keepalive[^\"]*\\.\\+d|download/v$(VERSION)/keepalive-$(VERSION).tar.gz|" $(FORMULA); \
 	sed -i '' "s/sha256 \".*\"/sha256 \"$$CLI_SHA\"/" $(FORMULA); \
 	sed -i '' "s/version \".*\"/version \"$(VERSION)\"/" $(UI_FORMULA); \
 	sed -i '' "s|download/[^/]*/KeepaliveUI-[0-9.]*.zip|download/v$(VERSION)/KeepaliveUI-$(VERSION).zip|" $(UI_FORMULA); \
@@ -78,7 +80,7 @@ release:
 	git push origin main; \
 	awk '/^## v$(VERSION) /{flag=1;next} /^## v/{flag=0} flag' CHANGELOG.md > $$NOTES_FILE; \
 	[ -s $$NOTES_FILE ] || echo "v$(VERSION)" > $$NOTES_FILE; \
-	gh release create v$(VERSION) $(BINARY) dist/$(GUI_NAME)-$(VERSION).zip \
+	gh release create v$(VERSION) dist/$(APP_NAME)-$(VERSION).tar.gz dist/$(GUI_NAME)-$(VERSION).zip \\
 		--title "v$(VERSION)" --notes-file $$NOTES_FILE || true; \
 	rm -f $$NOTES_FILE; \
 	echo "📋 Step 6/6: Updating homebrew-tap..."; \

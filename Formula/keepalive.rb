@@ -2,11 +2,12 @@ class Keepalive < Formula
   desc "Keep macOS awake for Teams during chosen hours"
   homepage "https://github.com/skozar/keepalive"
   version "0.5.1"
-  url "https://github.com/skozar/keepalive/releases/download/v#{version}/keepalive"
+  url "https://github.com/skozar/keepalive/releases/download/v#{version}/keepalive-#{version}.tar.gz"
   sha256 "ace014a50e355584212076ccfb99ceedcbb76a5aa504ad5a857b2e5b186166d7"
 
   def install
-    bin.install "keepalive"
+    libexec.install Dir["*"]
+    bin.install_symlink libexec/"keepalive"
   end
 
   def caveats

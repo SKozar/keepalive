@@ -114,9 +114,9 @@ class SettingsWindow:
         # Row 3: Method (NSPopUpButton)
         y3 = row_top(3)
         view.addSubview_(make_label("Method:", y3))
-        popup = AppKit.NSPopUpButton.alloc().initWithFrame_(
+        popup = AppKit.NSPopUpButton.alloc().initWithFrame_pullsDown_(
             ((label_w + 6, y3), (field_w, field_h)),
-            pullsDown_=False,
+            False,
         )
         popup.addItemsWithTitles_(METHODS)
         current_method = self.settings.get("method", "mouse")
@@ -128,9 +128,9 @@ class SettingsWindow:
         # Row 4: Key (NSPopUpButton)
         y4 = row_top(4)
         view.addSubview_(make_label("Key:", y4))
-        key_popup = AppKit.NSPopUpButton.alloc().initWithFrame_(
+        key_popup = AppKit.NSPopUpButton.alloc().initWithFrame_pullsDown_(
             ((label_w + 6, y4), (field_w, field_h)),
-            pullsDown_=False,
+            False,
         )
         key_popup.addItemsWithTitles_(KEYS)
         current_key = self.settings.get("key", "f13")
