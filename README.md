@@ -1,5 +1,8 @@
 # keepalive
 
+[![tests](https://github.com/skozar/keepalive/actions/workflows/test.yml/badge.svg)](https://github.com/skozar/keepalive/actions/workflows/test.yml)
+[![coverage](https://img.shields.io/badge/coverage-available-success)](https://github.com/skozar/keepalive/actions/workflows/test.yml)
+
 Stay green. Simulates macOS input activity only when you're away — so messaging apps don't mark you as "Away" or "Idle."
 
 ## What it solves

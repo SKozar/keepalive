@@ -8,6 +8,10 @@ dependencies = [
     "rumps>=0.4.0",
 ]
 
+
+[tool.pdm]
+version = { source = "file", path = "src/keepalive/__init__.py" }
+
 [tool.pdm.dev-dependencies]
 test = ["pytest>=8.0"]
 build = ["pyinstaller>=6.0"]
@@ -19,5 +23,8 @@ keepalive = "keepalive.cli:main"
 requires = ["pdm-backend"]
 build-backend = "pdm.backend"
 
-[tool.pdm]
-version = { source = "file", path = "src/keepalive/__init__.py" }
+
+[dependency-groups]
+dev = [
+    "pytest-cov>=7.1.0",
+]

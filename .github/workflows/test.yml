@@ -1,0 +1,14 @@
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pdm-project/setup-pdm@v4
+        with:
+          python-version: "3.14"
+      - run: pdm install --dev
+      - run: pdm run pytest -v --cov=keepalive --cov-report=term-missing
