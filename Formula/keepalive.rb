@@ -1,9 +1,9 @@
 class Keepalive < Formula
   desc "Keep macOS awake for Teams during chosen hours"
   homepage "https://github.com/skozar/keepalive"
-  version "0.5.0"
+  version "0.5.1"
   url "https://github.com/skozar/keepalive/releases/download/v#{version}/keepalive"
-  sha256 "585c49df33fb30548c1a6306262817dcfa10009b9fb330ef29cd1a8c8e24162b"
+  sha256 "ace014a50e355584212076ccfb99ceedcbb76a5aa504ad5a857b2e5b186166d7"
 
   def install
     bin.install "keepalive"

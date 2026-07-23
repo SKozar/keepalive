@@ -1,5 +1,11 @@
 # Changelog
 
+## v0.5.1 (2026-07-23)
+- chore: move gui/ back to src/gui/, add --paths src
+- feat: auto-start/stop, toggle menu, status --json, 08-17 default
+- fix: restore v0.5.0 changelog entries
+- v0.5.0: update formulas
+
 ## v0.5.0 (2026-07-23)
 - feat: add app icon (light blue circle outline)
 - chore: unify CLI+UI release, auto-changelog from git log
